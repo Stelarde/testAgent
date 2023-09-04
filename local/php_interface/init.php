@@ -5,14 +5,15 @@ use Bitrix\Sale\Order,
 
 function UpdateCheckOrder()
 {
-    define("CHECKED_ORDER_PROPERTY_ID", 1);
+    define("CHECKED_ORDER_PROPERTY_ID", 20);
 
     Bitrix\Main\Loader::includeModule("sale");
     Bitrix\Main\Loader::includeModule("catalog");
 
-    $date = new Date();
-    $dateTo = $date->add("-3D");
-    $dateFrom = $date->add("-7D");
+    $dateTo = new Date();
+    $dateFrom = new Date();
+    $dateTo->add("-3 day");
+    $dateFrom->add("-7 day");
 
     $filter = array(
         ">=DATE_PAYED" => $dateFrom,
@@ -44,8 +45,8 @@ function UpdateCheckOrder()
                 $message = json_encode([
                     "ID" => $objOrder->getId(),
                     "DATE_PAYED" => $objOrder->getField("DATE_PAYED")->format("Y-m-d"),
-                    "EMAIL" => $arUser['EMAIL'],
-                    "NAME" => $arUser['NAME'],
+                    "EMAIL" => $propertyCollection->getUserEmail()->getValue(),
+                    "NAME" => $propertyCollection->getPayerName()->getValue(),
                     "DATE_LAST_UPDATE_CHECKED_PROP" => date("Y-m-d")
                 ]);
 

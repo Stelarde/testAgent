@@ -1,40 +1,46 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $aMenuLinks = Array(
 	Array(
-		"Компания", 
-		"company/", 
+		"Как купить", 
+		"about/howto/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Новости", 
-		"news/", 
+		"Доставка", 
+		"about/delivery/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Продукция", 
-		"products/", 
+		"О магазине", 
+		"about/", 
+		Array(), 
+		Array(), 
+		"" 
+	),	
+	Array(
+		"Гарантия", 
+		"about/guaranty/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Услуги", 
-		"services/", 
-		Array(), 
-		Array(), 
-		"" 
+		"Контакты",
+		"about/contacts/",
+		Array(),
+		Array(),
+		""
 	),
 	Array(
-		"Контакты", 
-		"contacts/", 
-		Array(), 
-		Array(), 
-		"" 
-	)
+		"Мой кабинет",
+		"personal/",
+		Array(),
+		Array(),
+		"\$USER->IsAuthorized()"
+	),
 );
 ?>
